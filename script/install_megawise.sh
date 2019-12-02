@@ -42,12 +42,12 @@ if [ $MEGAWISE_CNT -ne 0 ];then
 fi
 
 mkdir ${dir_location}/conf
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/user_config.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/etcd.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/megawise_config_template.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/etcd_config_template.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/etcd_config.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/megawise_config.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/user_config.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/etcd.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/megawise_config_template.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/etcd_config_template.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/etcd_config.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/megawise_config.yaml
 
 
 if [ -f "/tmp/nyc_taxi_data.csv" ];then
