@@ -53,7 +53,7 @@ wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/
 if [ -f "/tmp/nyc_taxi_data.csv" ];then
 	echo "Warning: /tmp/nyc_taxi_data.csv already exists, you can delete it."
 else
-	wget -P /tmp https://raw.githubusercontent.com/Infini-Analytics/infini/master/sample_data/nyc_taxi_data.csv
+	wget -P /tmp https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/sample_data/nyc_taxi_data.csv
 fi
 echo "Information: Configuration parameter"
 echo " 1.egawise username:        MEGAWISE_USER=zilliz"
