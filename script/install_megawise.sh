@@ -42,21 +42,21 @@ if [ $MEGAWISE_CNT -ne 0 ];then
 fi
 
 mkdir ${dir_location}/conf
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/user_config.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/etcd.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/megawise_config_template.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/etcd_config_template.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/etcd_config.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/config/db/megawise_config.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/user_config.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/megawise_config_template.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd_config_template.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd_config.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/megawise_config.yaml
 
 
 if [ -f "/tmp/nyc_taxi_data.csv" ];then
 	echo "Warning: /tmp/nyc_taxi_data.csv already exists, you can delete it."
 else
-	wget -P /tmp https://raw.githubusercontent.com/Infini-Analytics/infini/v0.5.0/sample_data/nyc_taxi_data.csv
+	wget -P /tmp https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/sample_data/nyc_taxi_data.csv
 fi
 echo "Information: Configuration parameter"
-echo " 1.egawise username:        MEGAWISE_USER=zilliz"
+echo " 1.megawise username:       MEGAWISE_USER=zilliz"
 echo " 2.megawise password:       MEGAWISE_PWD=zilliz"
 echo " 3.megawise database name:  MEGAWISE_DB=postgres"
 echo " 4.megawise port            MEGAWISE_PORT=5433"
