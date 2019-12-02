@@ -45,15 +45,15 @@ if [ $MEGAWISE_CNT -ne 0 ];then
 fi
 
 mkdir ${dir_location}/conf
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/chewie_main.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/etcd.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/megawise_config.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/megawise_config_template.yaml
-wget -P ${dir_location}/conf https://raw.githubusercontent.com/Infini-Analytics/infini/master/config/db/render_engine.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/db/chewie_main.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/db/etcd.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/db/megawise_config.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/db/megawise_config_template.yaml
+wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/config/db/render_engine.yaml
 if [ -f "${dir_location}/raw_data/nyc_taxi_data.csv" ];then
 	echo "Warning: ${dir_location}/raw_data/nyc_taxi_data.csv already exists, you can delete it."
 else
-	wget -P ${dir_location}/raw_data https://raw.githubusercontent.com/Infini-Analytics/infini/master/sample_data/nyc_taxi_data.csv
+	wget -P ${dir_location}/raw_data https://raw.githubusercontent.com/zilliztech/infini/v0.4.0/sample_data/nyc_taxi_data.csv
 fi
 echo "Information: Configuration parameter"
 echo " 1.egawise username:        MEGAWISE_USER=zilliz"
