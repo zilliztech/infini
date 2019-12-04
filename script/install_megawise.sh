@@ -16,9 +16,13 @@ if [ -d ${dir_location} ];then
   	exit 0
 fi
 
+cp data_import.sh /tmp
 echo "magawise_tag :" $megawise_tag
-mkdir ${dir_location}/
+mkdir -p ${dir_location}/
 docker pull zilliz/megawise:$megawise_tag
+
+cd ${dir_location}
+dir_location=$(pwd)
 
 if [ -d ${dir_location} ];then
     echo "Information: installation manual : ${dir_location}."
@@ -27,9 +31,6 @@ else
     exit -1
 fi
 
-
-
-cp data_import.sh /tmp
 megawise_image_id=$(docker images |grep "zilliz/megawise" | grep "$megawise_tag" \
  |awk '{printf "%s\n",$3}')
 echo "megawise_image_id:" $megawise_image_id
@@ -41,7 +42,7 @@ if [ $MEGAWISE_CNT -ne 0 ];then
 	exit 0
 fi
 
-mkdir ${dir_location}/conf
+mkdir -p ${dir_location}/conf
 wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/user_config.yaml
 wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/etcd.yaml
 wget -P ${dir_location}/conf https://raw.githubusercontent.com/zilliztech/infini/v0.5.0/config/db/megawise_config_template.yaml
@@ -61,9 +62,9 @@ echo " 2.megawise password:       MEGAWISE_PWD=zilliz"
 echo " 3.megawise database name:  MEGAWISE_DB=postgres"
 echo " 4.megawise port            MEGAWISE_PORT=5433"
 
-mkdir ${dir_location}/data
-mkdir ${dir_location}/server_data
-mkdir ${dir_location}/logs
+mkdir -p ${dir_location}/data
+mkdir -p ${dir_location}/server_data
+mkdir -p ${dir_location}/logs
 docker run --gpus all --shm-size 4294967296 \
  -e USER=`id -u` -e GROUP=`id -g` \
  -v ${dir_location}/conf:/megawise/conf  \
