@@ -104,6 +104,30 @@ fi
 echo "listen_addresses = '*'" >> ${dir_location}/data/postgresql.conf
 echo "host    all             all             0.0.0.0/0          password" >> ${dir_location}/data/pg_hba.conf
 
-docker restart ${container_id}
+docker stop ${container_id}
+
+docker run --gpus all --shm-size 4294967296 \
+ -e USER=`id -u` -e GROUP=`id -g` \
+ -v ${dir_location}/conf:/megawise/conf  \
+ -v ${dir_location}/data:/megawise/data  \
+ -v ${dir_location}/logs:/megawise/logs \
+ -v ${dir_location}/server_data:/megawise/server_data  \
+ -v /home/$USER/.nv:/home/megawise/.nv \
+ -v /tmp:/tmp  \
+ -d \
+ -p 5433:5432  \
+ ${megawise_image_id}
+
+IS_RUN=$(docker ps | grep ${megawise_image_id} | wc -l)
+TRY_CNT=0
+while [ $IS_RUN -eq 0 ];do
+	sleep 1
+	IS_RUN=$(docker ps | grep ${megawise_image_id} | wc -l)
+	if [ $TRY_CNT -ge 60 ];then
+		echo "Error: restart megawise in docker failed, please check it."
+		exit -1
+	fi
+	TRY_CNT=$[$TRY_CNT + 1]
+done
 
 echo "State: restart megawise successfully! Finished!"
