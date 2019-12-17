@@ -17,7 +17,7 @@ if [ -d ${dir_location} ];then
 fi
 
 cp data_import.sh /tmp
-echo "magawise_tag :" $megawise_tag
+echo "megawise_tag :" $megawise_tag
 mkdir -p ${dir_location}/
 docker pull zilliz/megawise:$megawise_tag
 
@@ -93,10 +93,10 @@ echo "State: start megawise in docker successfully!"
 
 container_id=$(docker ps |grep ${megawise_image_id} |awk '{printf "%s\n",$1}')
 
-echo "State: copying example data into meagwise.......please wait....."
+echo "State: copying example data into megawise.......please wait....."
 docker exec -u `id -u` -it ${container_id} /tmp/data_import.sh
 if [ $? -ne 0 ]; then
-    echo "Error: import test data failed, you do it by hand using data_import.sh!"
+    echo "Error: import test data failed. Please manually import data using data_import.sh!"
     exit 0
 else
 	echo "State: Successfully installed MegaWise and imported test data"
