@@ -12,7 +12,7 @@ else
 fi
 
 if [ -d ${dir_location} ];then
-	echo "Error: file /home/zilliz/megawise already exists, please try again."
+	echo "Error: ${dir_location} already exists. Please use a different location."
   	exit 0
 fi
 
@@ -25,9 +25,9 @@ cd ${dir_location}
 dir_location=$(pwd)
 
 if [ -d ${dir_location} ];then
-    echo "Information: installation manual : ${dir_location}."
+    echo "MegaWise will be installed in ${dir_location}."
 else
-    echo "Error: can't create ${dir_location}, please check out the permission."
+    echo "Error: can't create ${dir_location}. Please check out the permission."
     exit -1
 fi
 
